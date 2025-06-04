@@ -5,6 +5,33 @@ const state = {
   temp: 59,
 };
 
+const resetCity = () => {
+  let newCityName = document.getElementById('cityNameInput');
+  const headerCityName = document.getElementById('headerCityName');
+
+  newCityName.value = 'Seattle';
+  state.city = newCityName.value;
+  headerCityName.textContent = state.city;
+};
+
+const updateSky = () => {
+  const skySelect = document.getElementById('skySelect').value;
+  let sky;
+
+  if (skySelect ===  'Sunny') {
+    sky = '☁️ ☁️ ☁️ ☀️ ☁️ ☁️';
+  } else if (skySelect === 'Cloudy') {
+    sky = '☁️☁️ ☁️ ☁️☁️ ☁️ 🌤 ☁️ ☁️☁️';
+  } else if (skySelect === 'Rainy') {
+    sky = '🌧🌈⛈🌧🌧💧⛈🌧🌦🌧💧🌧🌧';
+  } else if (skySelect === 'Snowy') {
+    sky = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
+  }
+
+  const skyDisplay = document.getElementById('sky');
+  skyDisplay.textContent = sky;
+
+};
 
 const changeCityName = () => {
   const newCityName = document.getElementById('cityNameInput').value;
@@ -74,20 +101,20 @@ const updateDisplay = () => {
   let landscapeDisplay;
 
   if (state.temp >= 80) {
-    textColor = "red";
-    landscapeDisplay = "Very hot 🌵"
+    textColor = 'red';
+    landscapeDisplay = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
   } else if (state.temp >= 70) {
-    textColor = "orange";
-    landscapeDisplay = "Warm"
+    textColor = 'orange';
+    landscapeDisplay = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
   } else if (state.temp >= 60) {
-    textColor = "yellow";
-    landscapeDisplay = "Medium"
+    textColor = 'yellow';
+    landscapeDisplay = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
   } else if (state.temp >= 50) {
-    textColor = "green";
-    landscapeDisplay = "Cool"
+    textColor = 'green';
+    landscapeDisplay = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   } else {
-    textColor = "teal";
-    landscapeDisplay = "Very Cool"
+    textColor = 'teal';
+    landscapeDisplay = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
   }
 
   const tempElement = document.getElementById('tempValue');
@@ -103,6 +130,7 @@ const registerEventHandlers = () => {
   // updateTextColor();
   // updateLandscape();
   updateDisplay();
+  updateSky();
 
   const incrButton = document.querySelector('#increaseTempControl');
   incrButton.addEventListener('click', increaseTemp);
@@ -115,6 +143,12 @@ const registerEventHandlers = () => {
 
   const currentTempButton = document.getElementById('currentTempButton');
   currentTempButton.addEventListener('click', getLatitudeLongitude);
+
+  const skySelect = document.getElementById('skySelect');
+  skySelect.addEventListener('change', updateSky);
+
+  const resetButton = document.getElementById('cityNameReset');
+  resetButton.addEventListener('click', resetCity)
 };
   
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
