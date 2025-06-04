@@ -112,6 +112,8 @@ justify-content: space-between;
 
 border-radius: 8px;
 font-size: 2em;
+
+background-color: black;
 }
 
 .city-name__reset-btn {
@@ -161,8 +163,4 @@ background-color: lightblue;
 
 .snowy {
 background-color: lightsteelblue;
-}
-
-.garden__content {
-    background-color: black;
 }

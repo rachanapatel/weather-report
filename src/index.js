@@ -45,19 +45,12 @@ const updateDisplay = () => {
 };
 
 
-const resetCity = () => {
-  const newCityName = document.getElementById('cityNameInput');
-  newCityName.value = 'Seattle';
-  changeCityName();
-};
-
-
 const changeCityName = () => {
-  const newCityName = document.getElementById('cityNameInput').value;
+  const newCityName = document.getElementById('cityNameInput');
   const headerCityName = document.getElementById('headerCityName');
 
   state.city = newCityName.value;
-  headerCityName.textContent = newCityName;
+  headerCityName.textContent = newCityName.value;
 };
 
 
@@ -115,6 +108,14 @@ const updateSky = () => {
     sky.textContent = '🌨❄️🌨🌨❄️❄️🌨❄️🌨❄️❄️🌨🌨';
   }
 
+};
+
+
+const resetCity = () => {
+  const newCityName = document.getElementById('cityNameInput');
+  newCityName.value = 'Seattle';
+  changeCityName();
+  getLatitudeLongitude();
 };
 
 
