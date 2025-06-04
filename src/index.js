@@ -23,7 +23,7 @@ const decreaseTemp = () => {
 const updateDisplay = () => {
   const tempValue = document.getElementById('tempValue');
   const landscape = document.getElementById("landscape");
-  tempValue.textContent = `${state.temp}°F`
+  tempValue.textContent = `${state.temp}°F`;
 
   if (state.temp >= 80) {
     tempValue.className = 'red';
@@ -145,5 +145,5 @@ const registerEventHandlers = () => {
   const resetButton = document.getElementById('cityNameReset');
   resetButton.addEventListener('click', resetCity)
 };
-  
+
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
