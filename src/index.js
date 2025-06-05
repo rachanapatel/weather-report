@@ -68,10 +68,14 @@ const getLatitudeLongitude = () => {
     console.log('success in finding location', response.data);
     state.lat = response.data[0].lat;
     state.lon = response.data[0].lon;
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'none';
     getWeather();
   })
   .catch((error) => {
     console.log('error in finding location', error);
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.style.display = 'block';
   });
 };
 
