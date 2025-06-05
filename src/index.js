@@ -1,4 +1,5 @@
-const SERVER_URL = 'http://localhost:5000';
+// const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = 'https://weather-report-proxy-server-nnbk.onrender.com';
 
 const state = {
   city: 'Seattle',
@@ -174,11 +175,6 @@ const resetCity = () => {
 };
 
 
-const generateDefaultDisplay = () => {
-  getWeather();
-  updateSky();
-};
-
 const switchUnits = () => {
   const selectedInput = document.querySelector('input[name="unit"]:checked');
   if (selectedInput) {
@@ -187,8 +183,10 @@ const switchUnits = () => {
   }
 }
 
+
 const registerEventHandlers = () => {
-  generateDefaultDisplay();
+  updateDisplay();
+  updateSky();
 
   const incrButton = document.getElementById('increaseTempControl');
   incrButton.addEventListener('click', increaseTemp);
