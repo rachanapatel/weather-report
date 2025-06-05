@@ -22,24 +22,30 @@ const decreaseTemp = () => {
 
 const updateDisplay = () => {
   const tempValue = document.getElementById('tempValue');
-  const landscape = document.getElementById("landscape");
+  const landscape = document.getElementById('landscape');
+  const season = document.getElementById('gardenContent');
   tempValue.textContent = `${state.temp}°F`;
 
   if (state.temp >= 80) {
     tempValue.className = 'red';
     landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
+    season.className = 'summer';
   } else if (state.temp >= 70) {
     tempValue.className = 'orange';
     landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
+    season.className = 'spring';
   } else if (state.temp >= 60) {
     tempValue.className = 'yellow';
     landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
+    season.className = 'fall';
   } else if (state.temp >= 50) {
     tempValue.className = 'green';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    season.className = 'winter';
   } else {
     tempValue.className = 'teal';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
+    season.className = 'winter';
   }
 
 };

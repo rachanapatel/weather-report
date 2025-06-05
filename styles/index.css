@@ -15,6 +15,8 @@ h2 {
 body {
     background-image: url("style-assets/bg.webp");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'stardewValley';
     font-size: 18px;
     background-color: #1b69f9;
@@ -34,15 +36,25 @@ color: white;
 grid-column: 2 / span 2;
 text-align: center;
 margin: 1rem auto 1rem 0;
+font-size: 1.5em;
 }
 
 .header__header > h1 {
-font-size: 3em;
+font-size: 2em;
 margin: 0 auto 1rem auto;
 }
 
-.garden__section > h2 {
-font-size: 1.8em;
+.scroll {
+font-size: 1em;
+background-image: url(style-assets/scroll.png);
+background-size: contain;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.scroll h2 {
+    padding: 25px;
+    font-weight: 900;
 }
 
 .header__city-name {
@@ -57,7 +69,7 @@ content: "✨";
 
 .temperature__section,
 .sky__section,
-.garden__content {
+#gardenContent {
 border-image: url(style-assets/border.png);
 border-image-slice: 24 22;
 padding: 1em;
@@ -65,7 +77,11 @@ border-style: solid;
 border-width: 20px;
 border-radius: 20px;
 overflow: auto;
-background-color: #eba867;
+}
+
+.temperature__section,
+.sky__section {
+background-color: #e9af75;
 }
 
 .temperature__section {
@@ -83,18 +99,19 @@ margin: 10px auto;
 input {
 display: block;
 margin : 0 auto;
+font-size: 20px;
+font-family: "stardewValley";
 }
 
 .temperature__section button {
-background-color: #1b69f9;
-border: none;
-color: white;
-padding: 15px 32px;
+background-color: #fc9116;
+border: 2px solid black;
+padding: 8px 40px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
-font-size: 16px;
-border-radius: 10px;
+font-size: 20px;
+border-radius: 5px;
 font-family: 'stardewValley';
 }
 
@@ -140,11 +157,7 @@ flex-direction: column;
 align-items: center;
 }
 
-.garden__section > h2 {
-color: white;
-}
-
-.garden__content {
+#gardenContent {
 min-height: 200px;
 margin: auto;
 padding: 2rem;
@@ -157,13 +170,9 @@ border-radius: 8px;
 font-size: 2em;
 }
 
-.city-name__reset-btn {
-border: 0;
-background-color: #1655cc;
-color: white;
-border-radius: 8px;
-padding: 1rem;
-font-family: 'stardewValley';
+select {
+    font-size: 20px;
+    font-family: "stardewValley";
 }
 
 .red {
@@ -190,18 +199,26 @@ color: green;
 color: teal;
 }
 
-.cloudy {
-background-color: lightgrey;
+.spring {
+background-image: url(style-assets/spring.png);
+background-size: cover;
+background-position: center;
 }
 
-.sunny {
-background-color: rgb(221, 255, 255);
+.summer {
+background-image: url(style-assets/summer.png);
+background-size: cover;
+background-position: center;
 }
 
-.rainy {
-background-color: lightblue;
+.fall {
+background-image: url(style-assets/fall.png);
+background-size: cover;
+background-position: center;
 }
 
-.snowy {
-background-color: lightsteelblue;
+.winter {
+background-image: url(style-assets/winter.png);
+background-size: cover;
+background-position: center;
 }
