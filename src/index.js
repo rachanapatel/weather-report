@@ -174,11 +174,6 @@ const resetCity = () => {
 };
 
 
-const generateDefaultDisplay = () => {
-  getWeather();
-  updateSky();
-};
-
 const switchUnits = () => {
   const selectedInput = document.querySelector('input[name="unit"]:checked');
   if (selectedInput) {
@@ -187,8 +182,10 @@ const switchUnits = () => {
   }
 }
 
+
 const registerEventHandlers = () => {
-  generateDefaultDisplay();
+  updateDisplay();
+  updateSky();
 
   const incrButton = document.getElementById('increaseTempControl');
   incrButton.addEventListener('click', increaseTemp);
