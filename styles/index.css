@@ -1,35 +1,53 @@
-h2 {
-    margin: 0 auto 2rem auto;
+@font-face {
+    font-family: 'stardewValley';
+    src: url('style-assets/stardewvalley.woff2') format('woff2');
+    font-style: normal;
 }
-  
+
+* {
+	cursor: url("style-assets/cursor.webp"), auto;
+}
+
+h2 {
+    margin: 0 auto 1rem auto;
+}
+
 body {
+    background-image: url("style-assets/bg.webp");
+    background-size: cover;
+    font-family: 'stardewValley';
+    font-size: 18px;
+    background-color: #1b69f9;
+    margin: 2rem;
+}
+
+main {
 display: grid;
-grid-template-columns: 1fr 2fr;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 grid-template-rows: auto auto auto auto;
 grid-gap: 1rem;
 
-font-family: "Rubik", sans-serif;
-font-size: 18px;
-background-color: #1b69f9;
-margin: 2rem;
 }
 
 .header__header {
 color: white;
-grid-column: span 3;
-display: flex;
-align-items: center;
-margin: 2rem auto 3rem 0;
+grid-column: 2 / span 2;
+text-align: center;
+margin: 1rem auto 1rem 0;
 }
 
 .header__header > h1 {
-margin-right: 2rem;
 font-size: 3em;
+margin: 0 auto 1rem auto;
+}
+
+.garden__section > h2 {
+font-size: 1.8em;
 }
 
 .header__city-name {
 font-style: oblique;
-font-size: 2rem;
+font-size: 1.5rem;
 }
 
 .header__city-name::before,
@@ -39,39 +57,63 @@ content: "✨";
 
 .temperature__section,
 .sky__section,
-.city-name__section {
-border-radius: 8px;
-padding: 2rem;
-background-color: white;
+.garden__content {
+border-image: url(style-assets/border.png);
+border-image-slice: 24 22;
+padding: 1em;
+border-style: solid;
+border-width: 20px;
+border-radius: 20px;
+overflow: auto;
+background-color: #eba867;
 }
 
 .temperature__section {
-grid-row: 2;
+grid-row: 3;
+grid-column: 2 / span 2;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto auto;
+}
+
+#currentTempButton {
+margin: 10px auto;
+}
+
+input {
+display: block;
+margin : 0 auto;
 }
 
 .temperature__section button {
-    background-color: #1b69f9;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 10px
+background-color: #1b69f9;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius: 10px;
+font-family: 'stardewValley';
 }
 
 .sky__section {
 grid-row: 3;
+grid-column: 4;
 }
 
-.city-name__section {
-grid-row: 4;
+.name__content {
+text-align: center;
+}
+
+.city__content {
+margin: 50%;
 }
 
 .garden__section {
-grid-row: 2 / span 3;
-grid-column: 2;
+grid-row: 2;
+grid-column: 2 / span 3;
 text-align: center;
 align-self: center;
 }
@@ -80,6 +122,8 @@ align-self: center;
 display: flex;
 flex-direction: row;
 justify-content: space-around;
+grid-column: 1;
+grid-row: 2;
 /* justify-content: center; */
 }
 
@@ -102,7 +146,6 @@ color: white;
 
 .garden__content {
 min-height: 200px;
-max-width: fit-content;
 margin: auto;
 padding: 2rem;
 
@@ -112,8 +155,6 @@ justify-content: space-between;
 
 border-radius: 8px;
 font-size: 2em;
-
-background-color: black;
 }
 
 .city-name__reset-btn {
@@ -122,7 +163,7 @@ background-color: #1655cc;
 color: white;
 border-radius: 8px;
 padding: 1rem;
-font-family: "Rubik", sans-serif;
+font-family: 'stardewValley';
 }
 
 .red {
@@ -130,7 +171,7 @@ color: red;
 }
 
 .orange {
-color: orange;
+color: rgb(251, 100, 12);
 }
 
 .yellow {

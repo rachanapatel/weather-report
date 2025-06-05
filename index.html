@@ -17,6 +17,15 @@
         <span>For the lovely city of 
             <span id="headerCityName" class="header__city-name">Seattle</span>
     </header>
+    <main>
+    <section class="garden__section">
+        <h2>Weather Garden</h2>
+        <div id="gardenContent" class="garden__content">
+            <div id="sky"></div>
+            <div id="landscape"></div>
+        </div>
+    </section>
+
     <section class="temperature__section">
         <h2>Temperature</h2>
         <div class="temperature__content">
@@ -25,7 +34,12 @@
                 <span id="tempValue"></span>
                 <span id="decreaseTempControl">⬇️</span>
             </div>
+        </div>
+        <h2>City Name</h2>
+        <div class="name__content">
+            <input type="text" id="cityNameInput" value="Seattle">
             <button id="currentTempButton">Get Temperature</button>
+            <button id="cityNameReset" class="city-name__reset-btn">Reset City</button>
         </div>
     </section>
     <section class="sky__section">
@@ -38,20 +52,7 @@
             <option value="Snowy">Snowy</option>
         </select>
     </section>
-
-    <section class="city-name__section">
-        <h2>City Name</h2>
-        <input type="text" id="cityNameInput" value="Seattle">
-        <button id="cityNameReset" class="city-name__reset-btn">Reset City</button>
-    </section>
-
-    <section class="garden__section">
-        <h2>Weather Garden</h2>
-        <div id="gardenContent" class="garden__content">
-            <div id="sky"></div>
-            <div id="landscape"></div>
-        </div>
-    </section>
+    </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/index.js"></script>
 </body>
