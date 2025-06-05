@@ -2,43 +2,69 @@ const SERVER_URL = 'http://localhost:5000';
 
 const state = {
   city: 'Seattle',
-  temp: 75,
   lat: 47.6038321,
   lon: -122.330062,
+  tempF: 75,
+  tempC: 24,
+  unit: 'Fahrenheit'
 };
 
 
 const increaseTemp = () => {
-  state.temp++;
+  if (state.unit === 'Fahrenheit') {
+    state.tempF++;
+    state.tempC = convertFToC(state.tempF);
+  } else {
+    state.tempC++;
+    state.tempF = convertCToF(state.tempC);
+  }
   updateDisplay();
 };
 
 
 const decreaseTemp = () => {
-  state.temp--;
+  if (state.unit === 'Fahrenheit') {
+    state.tempF--;
+    state.tempC = convertFToC(state.tempF);
+  } else {
+    state.tempC--;
+    state.tempF = Math.round(state.tempC * 9/5 + 32);
+  }
   updateDisplay();
 };
 
 
 const updateDisplay = () => {
   const tempValue = document.getElementById('tempValue');
-  const landscape = document.getElementById('landscape');
+  const landscape = document.getElementById("landscape");
   const season = document.getElementById('gardenContent');
-  tempValue.textContent = `${state.temp}°F`;
 
-  if (state.temp >= 80) {
+  let temp;
+  let unit;
+
+  if (state.unit === 'Fahrenheit') {
+    temp = state.tempF;
+    unit = '°F';
+  } else {
+    temp = state.tempC;
+    unit = '°C';
+  }
+
+  tempValue.textContent = `${temp}${unit}`;
+
+  if (state.tempF >= 80) {
     tempValue.className = 'red';
     landscape.textContent = '🌵__🐍_🦂_🌵🌵__🐍_🏜_🦂';
     season.className = 'summer';
-  } else if (state.temp >= 70) {
+  } else if (state.tempF >= 70) {
     tempValue.className = 'orange';
     landscape.textContent = '🌸🌿🌼__🌷🌻🌿_☘️🌱_🌻🌷';
     season.className = 'spring';
-  } else if (state.temp >= 60) {
+  } else if (state.tempF >= 60) {
     tempValue.className = 'yellow';
     landscape.textContent = '🌾🌾_🍃_🪨__🛤_🌾🌾🌾_🍃';
     season.className = 'fall';
-  } else if (state.temp >= 50) {
+  } else if (state.tempF >= 50) {
     tempValue.className = 'green';
     landscape.textContent = '🌲🌲⛄️🌲⛄️🍂🌲🍁🌲🌲⛄️🍂🌲';
     season.className = 'winter';
@@ -89,7 +115,9 @@ const getWeather = () => {
   })
   .then((response) => {
     console.log('weather found', response.data);
-    state.temp = convertKToF(response.data.main.temp);
+    // state.temp = convertKToF(response.data.main.temp);
+    state.tempF = convertKToF(response.data.main.temp);
+    state.tempC = convertKToC(response.data.main.temp);
     updateDisplay();
   })
   .catch((error) => {
@@ -100,6 +128,24 @@ const getWeather = () => {
 
 const convertKToF = (tempInK) => {
   const tempinF = Math.round((tempInK - 273.15) * 9/5 + 32);
+  return tempinF;
+};
+
+
+const convertKToC = (tempInK) => {
+  const tempinC = Math.round(tempInK - 273.15);
+  return tempinC;
+};
+
+
+const convertFToC = (tempInF) => {
+  const tempinC = Math.round((tempInF - 32) * 5/9);
+  return tempinC;
+};
+
+
+const convertCToF = (tempInC) => {
+  const tempinF = Math.round(state.tempC * 9/5 + 32);
   return tempinF;
 };
 
@@ -134,6 +180,13 @@ const generateDefaultDisplay = () => {
   updateSky();
 };
 
+const switchUnits = () => {
+  const selectedInput = document.querySelector('input[name="unit"]:checked');
+  if (selectedInput) {
+    state.unit = selectedInput.value;
+    updateDisplay();
+  }
+}
 
 const registerEventHandlers = () => {
   generateDefaultDisplay();
@@ -155,6 +208,10 @@ const registerEventHandlers = () => {
 
   const resetButton = document.getElementById('cityNameReset');
   resetButton.addEventListener('click', resetCity)
+
+  const unitInputs = document.querySelectorAll('input[name="unit"]');
+  unitInputs.forEach((input) => {input.addEventListener('change', switchUnits);
+  });
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
