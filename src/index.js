@@ -6,7 +6,7 @@ const state = {
   lon: -122.330062,
   tempF: 75,
   tempC: 24,
-  unit: 'Fahrenheit'
+  unit: 'Fahrenheit',
 };
 
 
@@ -115,7 +115,6 @@ const getWeather = () => {
   })
   .then((response) => {
     console.log('weather found', response.data);
-    // state.temp = convertKToF(response.data.main.temp);
     state.tempF = convertKToF(response.data.main.temp);
     state.tempC = convertKToC(response.data.main.temp);
     updateDisplay();
@@ -207,7 +206,7 @@ const registerEventHandlers = () => {
   skySelect.addEventListener('change', updateSky);
 
   const resetButton = document.getElementById('cityNameReset');
-  resetButton.addEventListener('click', resetCity)
+  resetButton.addEventListener('click', resetCity);
 
   const unitInputs = document.querySelectorAll('input[name="unit"]');
   unitInputs.forEach((input) => {input.addEventListener('change', switchUnits);

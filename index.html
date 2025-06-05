@@ -13,9 +13,10 @@
 
 <body>
     <header class="header__header">
-        <h1><img src="styles/style-assets/fontbolt.png"></h1>
+        <h1><img src="styles/style-assets/fontbolt.png" alt="header image"></h1>
         <span>For the lovely city of 
             <span id="headerCityName" class="header__city-name">Seattle</span>
+        </span>
     </header>
     <main>
     <section class="garden__section">
@@ -29,12 +30,12 @@
     </section>
 
     <section class="temperature__section">
-        <h2>Temperature</h2>
+        <h2 class="temperature">Temperature</h2>
         <div class="temperature__content">
             <div class="temperature__controls">
-                <span id="increaseTempControl"><img src="styles/style-assets/uparrow.png"></span>
+                <span id="increaseTempControl"><img src="styles/style-assets/uparrow.png" alt="up arrow"></span>
                 <span id="tempValue"></span>
-                <span id="decreaseTempControl"><img src="styles/style-assets/downarrow.png"></span>
+                <span id="decreaseTempControl"><img src="styles/style-assets/downarrow.png" alt="down arrow"></span>
             </div>
         </div>
         <div class="switch-units">
@@ -44,13 +45,13 @@
             <input type="radio" id="celsius" name="unit" value="Celsius">
             <label for="celsius">°C</label>
         </div>
-        <h2>City Name</h2>
+        <h2 class="cityName">City Name</h2>
         <div class="name__content">
             <input type="text" id="cityNameInput" value="Seattle">
             <p id="errorMessage">City not found. Please try again.</p>
             <button id="currentTempButton">Get Temperature</button>
-            <button id="cityNameReset" class="city-name__reset-btn">Reset City</button>
         </div>
+        <button id="cityNameReset" class="city-name__reset-btn">Reset City</button>
     </section>
     <section class="sky__section">
         <h2>Sky</h2>

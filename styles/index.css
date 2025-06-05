@@ -1,7 +1,7 @@
 @font-face {
-    font-family: 'stardewValley';
-    src: url('style-assets/stardewvalley.woff2') format('woff2');
-    font-style: normal;
+  font-family: 'stardewValley';
+  src: url('style-assets/stardewvalley.woff2') format('woff2');
+  font-style: normal;
 }
 
 * {
@@ -9,240 +9,256 @@
 }
 
 h2 {
-    margin: 0 auto 1rem auto;
+  margin: 0 auto 1rem auto;
 }
 
 body {
-    background-image: url("style-assets/bg.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: 'stardewValley';
-    font-size: 20px;
-    margin: 2rem;
+  background-image: url("style-assets/bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'stardewValley';
+  font-size: 18px;
+  margin: 2rem;
 }
 
 main {
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-grid-template-rows: auto auto auto auto;
-grid-gap: 1rem;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-gap: 1rem;
 }
 
 .header__header {
-color: white;
-grid-column: 2 / span 2;
-text-align: center;
-margin: 1rem auto 1rem 0;
-font-size: 1.5em;
+  color: white;
+  grid-column: 2 / span 2;
+  text-align: center;
+  margin: 1rem auto 1rem 0;
+  font-size: 1.5em;
 }
 
 .header__header > h1 {
-font-size: 2em;
-margin: 0 auto 1rem auto;
+  font-size: 2em;
+  margin: 0 auto 1rem auto;
 }
 
 .scroll {
-font-size: 1em;
-background-image: url(style-assets/scroll.png);
-background-size: contain;
-background-position: center;
-background-repeat: no-repeat;
+  font-size: 1em;
+  background-image: url(style-assets/scroll.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .scroll h2 {
-    padding: 25px;
-    font-weight: 900;
+  padding: 25px;
+  font-weight: 900;
 }
 
 .header__city-name {
-font-style: oblique;
-font-size: 1.5rem;
+  font-style: oblique;
+  font-size: 1.5rem;
 }
 
 .header__city-name::before,
 .header__city-name::after {
-content: "✨";
+  content: "✨";
+}
+
+.garden__section {
+  grid-row: 2;
+  grid-column: 2 / span 3;
+  text-align: center;
+  align-self: center;
 }
 
 .temperature__section,
 .sky__section,
 #gardenContent {
-border-image: url(style-assets/border.png);
-border-image-slice: 24 22;
-padding: 1em;
-border-style: solid;
-border-width: 20px;
-border-radius: 20px;
-overflow: auto;
+  border-image: url(style-assets/border.png);
+  border-image-slice: 24 22;
+  padding: 1em;
+  border-style: solid;
+  border-width: 20px;
+  border-radius: 20px;
+  overflow: auto;
 }
 
 .temperature__section,
 .sky__section {
-background-color: #e9af75;
+  background-color: #e9af75;
 }
 
 .temperature__section {
-grid-row: 3;
-grid-column: 2 / span 2;
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: auto auto auto;
+  grid-row: 3;
+  grid-column: 2 / span 2;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto auto auto;
+}
+
+.temperature {
+  grid-row: 1;
+  grid-column: 1 / 5;
 }
 
 #currentTempButton {
-margin: 10px auto;
+  margin: 10px auto;
 }
 
 input {
-display: block;
-margin : 0 auto;
-font-size: 20px;
-font-family: "stardewValley";
+  display: block;
+  margin : 0 auto;
+  font-size: 20px;
+  font-family: "stardewValley";
 }
 
 .temperature__section button {
-background-color: #fc9116;
-border: 2px solid black;
-padding: 8px 40px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 20px;
-border-radius: 5px;
-font-family: 'stardewValley';
+  background-color: #fc9116;
+  border: 2px solid black;
+  padding: 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 5px;
+  font-family: 'stardewValley';
 }
 
 button:hover {
-background-color: rgb(228, 135, 5);
+  background-color: rgb(228, 135, 5);
 }
 
 .sky__section {
-grid-row: 3;
-grid-column: 4;
+  grid-row: 3;
+  grid-column: 4;
 }
 
 .name__content {
-text-align: center;
+  text-align: center;
+  grid-column: 5 / 9;
+  grid-row: 2;
 }
 
-.city__content {
-margin: 50%;
+.cityName {
+  grid-column: 5 / 9;
+  grid-row: 1;
 }
 
-.garden__section {
-grid-row: 2;
-grid-column: 2 / span 3;
-text-align: center;
-align-self: center;
+#cityNameReset {
+  grid-column: 6 / 8;
+  grid-row: 3;
 }
 
 .temperature__content {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-grid-column: 1;
-grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  grid-column: 1 / 5;
+  grid-row: 2;
 }
 
 #tempValue {
-font-size: 3rem;
-margin-left: 1.5rem;
+  font-size: 3rem;
+  margin-left: 1.5rem;
 }
 
 .temperature__controls {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1 / 5;
+  grid-row: 2;
 }
 
 #gardenContent {
-min-height: 200px;
-margin: auto;
-padding: 2rem;
+  min-height: 200px;
+  margin: auto;
+  padding: 2rem;
 
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-border-radius: 8px;
-font-size: 2vw;
+  border-radius: 8px;
+  font-size: 2vw;
 }
 
 select {
-    font-size: 20px;
-    font-family: "stardewValley";
+  font-size: 20px;
+  font-family: "stardewValley";
 }
 
 #errorMessage {
-    display: none;
-    color: red;
+  display: none;
+  color: red;
+  margin-bottom: 5px;
 }
 
 .red {
-color: red;
+  color: red;
 }
 
 .orange {
-color: rgb(251, 100, 12);
+  color: rgb(251, 100, 12);
 }
 
 .yellow {
-color: gold;
+  color: gold;
 }
 
 .yellow-green {
-color: yellowgreen;
+  color: yellowgreen;
 }
 
 .green {
-color: green;
+  color: green;
 }
 
 .teal {
-color: teal;
+  color: teal;
 }
 
 .spring {
-background-image: url(style-assets/spring.png);
-background-size: cover;
-background-position: center;
+  background-image: url(style-assets/spring.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .summer {
-background-image: url(style-assets/summer.png);
-background-size: cover;
-background-position: center;
+  background-image: url(style-assets/summer.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .fall {
-background-image: url(style-assets/fall.png);
-background-size: cover;
-background-position: center;
+  background-image: url(style-assets/fall.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .winter {
-background-image: url(style-assets/winter.png);
-background-size: cover;
-background-position: center;
+  background-image: url(style-assets/winter.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .switch-units {
-    grid-row-start: 3;
-    grid-column-start: 1;
-	display: flex;
-    grid-template-columns: auto auto auto auto;
-	margin-bottom: 10px;
-    border-radius: 5px;
-    border: 2px solid black;
+  grid-row-start: 3;
+  grid-column: 2 / 4;
+  display: flex;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .switch-units input {
 	position: absolute !important; 
 	height: 1px;
 	width: 1px;
- 	overflow: hidden;
+  overflow: hidden;
 }
 
 .switch-units label {
@@ -250,7 +266,6 @@ background-position: center;
 	color: rgba(0, 0, 0);
 	font-size: 14px;
 	text-align: center;
-	padding: 8px 16px;
 	margin-right: -1px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -261,6 +276,10 @@ background-position: center;
 	box-shadow: none;
 }
 
-/* .switch-units label[for="fahrenheit"] {
-    grid-column-start: 2;
-} */
+.switch-units label[for="fahrenheit"] {
+  flex: 1 1;
+}
+
+.switch-units label[for="celsius"] {
+  flex: 1 1;
+}
