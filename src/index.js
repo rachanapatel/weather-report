@@ -1,4 +1,4 @@
-const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = 'https://weather-report-proxy-server-nnbk.onrender.com';
 
 const state = {
   city: 'Seattle',
